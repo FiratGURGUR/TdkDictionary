@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TdkDictionary</string>
+    <string name="koken">Köken :</string>
+    <string name="sifat">sıfat</string>
+
+
+    <string name="search_append_1">â</string>
+    <string name="search_append_2">î</string>
+    <string name="search_append_3">û</string>
+
+</resources>

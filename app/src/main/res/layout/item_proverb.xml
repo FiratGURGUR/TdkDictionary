@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="ItemProverbBinding">
+        <variable
+            name="proverb"
+            type="com.firatg.tdkdictionary.model.detail.AtasozuItem" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_proverb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="7dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@{proverb.madde}" />
+
+    </androidx.cardview.widget.CardView>
+</layout>

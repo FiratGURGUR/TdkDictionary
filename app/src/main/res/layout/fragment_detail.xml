@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data class="DetailBinding">
+        <import type="android.view.View"/>
+        <variable
+            name="detail"
+            type="com.firatg.tdkdictionary.model.detail.ResponseDetail" />
+        <variable
+            name="fav"
+            type="com.firatg.tdkdictionary.model.search.Favori" />
+        <variable
+            name="vsblty"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:secondaryProgressTint="#CDDC39"
+            app:layout_constraintBottom_toBottomOf="@+id/nestedScrollView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/nestedScrollView"
+            android:visibility="@{!vsblty}"
+            />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                visibleInvisible="@{vsblty}"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimaryDark"
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    android:padding="7dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Favori"
+                        android:textColor="@color/white"
+                        android:textSize="17dp" />
+
+                    <ImageView
+                        android:id="@+id/add_favorite"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@{fav.like ? @drawable/ic_favorite_true : @drawable/ic_favorite_false}" />
+
+                </LinearLayout>
+
+                <TextView
+
+                    android:id="@+id/textView15"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/lightgrey"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="@{detail.capitalizeDetail()}"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Anlamlar"
+                    android:textColor="@color/orange"
+                    android:textSize="18sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyc_search_mean"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    android:text="Atasözü"
+                    android:textColor="@color/orange"
+                    android:textSize="18sp"
+                    android:visibility="@{detail.atasozu == null ? false:true}" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyc_search_proverb"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                    app:spanCount="3" />
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

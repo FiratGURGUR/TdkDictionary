@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="9dp"
+                android:padding="5dp">
+
+                <EditText
+                    android:id="@+id/searchArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:drawableStart="@drawable/ic_search_small"
+                    android:textColor="@android:color/darker_gray"
+                    android:textStyle="normal"
+                    android:hint="Kelime ara"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:background="@drawable/search_background"
+                    android:maxLines="1" />
+
+                <ImageView
+                    android:id="@+id/ivClearSearchText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="55dp"
+                    android:src="@drawable/ic_close_black"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/voice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="25dp"
+                    android:src="@drawable/ic_keyboard_voice"
+                     />
+
+            </RelativeLayout>
+            
+           <!-- <EditText
+                android:id="@+id/searchArea"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/search_background"
+                android:drawableStart="@drawable/ic_search_small"
+                android:drawableEnd="@drawable/ic_close_black"
+                android:ems="10"
+                android:hint="Kelime ara"
+                android:inputType="textPersonName" />-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/capped_one"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="â"
+                        android:clickable="true"
+                        android:layout_marginLeft="16dp"
+                        android:background="@drawable/searchbar_append_background"
+                        android:textColor="@color/black" />
+
+
+                    <TextView
+                        android:id="@+id/capped_two"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="î"
+                        android:clickable="true"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/searchbar_append_background"
+                        android:textColor="@color/black" />
+
+
+                    <TextView
+                        android:id="@+id/capped_three"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="û"
+                        android:clickable="true"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/searchbar_append_background"
+                        android:textColor="@color/black" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/linearHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            <TextView
+                android:id="@+id/delete_history_tv"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/click_selector"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Geçmişi Sil"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcyclerSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+        </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+</layout>
